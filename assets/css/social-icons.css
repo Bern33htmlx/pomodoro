@@ -1,0 +1,78 @@
+/* social-icons.css - estilos para los iconos sociales */
+
+/* Contenedor general */
+.social-icons{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+/* ==============================
+   Variante A — dentro del header (flex)
+   Uso: si insertas <nav class="social-icons"> dentro de .top-actions o .header
+   ============================== */
+.header .social-icons {
+  /* no es necesario más si .top-actions ya los sitúa a la derecha */
+  /* ejemplo: si quieres forzar alineación a la derecha dentro del header: */
+  margin-left: auto;
+}
+
+/* ==============================
+   Variante B — fijo en esquina superior derecha
+   Uso: si quieres que los iconos queden siempre visibles y fijos en la esquina
+   ============================== */
+/* Descomenta este bloque si prefieres que queden fijos */
+.fixed-social-icons {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display: flex;
+  gap:10px;
+  z-index: 1200; /* suficientemente alto para estar sobre el header */
+  align-items: center;
+  pointer-events: auto;
+}
+
+/* Diseño del enlace (común a ambas variantes) */
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(15,10,6,0.06);
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Imagen dentro del enlace */
+.social-link img{
+  display:block;
+  width:22px;
+  height:22px;
+  object-fit:contain;
+}
+
+/* Hover y focus */
+.social-link:hover,
+.social-link:focus{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(15,10,6,0.12);
+  background: rgba(255,255,255,0.12);
+  outline: none;
+}
+
+/* Efecto táctil activo */
+.social-link:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(15,10,6,0.06);
+}
+
+/* Responsive: reducir en pantallas pequeñas */
+@media (max-width:480px){
+  .social-link{ width:36px; height:36px; }
+  .social-link img{ width:18px; height:18px; }
+}
